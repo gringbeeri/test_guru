@@ -1,24 +1,24 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+TestGuru - it's project about test for users.
 
-Things you may want to cover:
+I will tell about things:
 
 * Ruby version
 
-* System dependencies
+* Model
+  *Client and tests - model.
+  *The test is the main purpose of the application.
+  *Two roles - users and administrators.
 
-* Configuration
+* Class
+  *Users
+  *Tests
+  *Administration
+  *Database users
+  *Authorization/Constant - login/password
+  *Interface
+  *Publication in social networks
 
 * Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+  *Class - data storage
