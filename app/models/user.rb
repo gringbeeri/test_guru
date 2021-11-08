@@ -1,7 +1,14 @@
 class User < ApplicationRecord
-  def search_test(level)
-    id_user = Account.where(users_id: self.id)
-    id_test = id_user.select(:tests_id)
-    pp Test.where(id: id_test, level: level)
+  def passing_tests(level)
+    Test.find_by_sql("
+      SELECT tests.*
+      FROM passings
+      INNER JOIN tests
+        ON tests.id = passings.test_id
+      INNER JOIN users
+        ON users.id = passings.user_id
+      WHERE users.id = #{id}
+        AND tests.level = #{level};
+    ")
   end
 end
