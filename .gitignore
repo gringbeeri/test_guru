@@ -37,8 +37,3 @@
 /node_modules
 /yarn-error.log
 yarn-debug.log*
-<<<<<<< HEAD
-.yarn-integrity
-=======
-.yarn-integrity
->>>>>>> 3c20b38c761bf67029d98dd777390e3b05055c24
