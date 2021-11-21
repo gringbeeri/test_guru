@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-[
+User.create!([
   {
     name: 'Dima', surname: 'UA',
   },
@@ -16,43 +16,37 @@
   {
     name: 'Igor', surname: 'RU',
   },
-].each do |users|
-  User.create!(users)
-end
-[
+])
+
+
+Category.create!([
   {
     title: 'Backend',
   },
   {
     title: 'Fronted'
   },
-].each do |categories|
-  Category.create!(categories)
-end
+])
 
-[
+Test.create!([
   {
     title: 'Ruby', level: 2, category_id: Category.ids[0],
   },
   {
     title: 'HTML', category_id: Category.ids[1],
   }
-].each do |tests|
-  Test.create!(tests)
-end
+])
 
-[
+Question.create([
   {
     body: 'В каком году был разработан Ruby?', test_id: Test.ids[0],
   },
   {
     body: 'Кто создал HTML?', test_id: Test.ids[1],
   }
-].each do |questions|
-  Question.create!(questions)
-end
+])
 
-[
+Answer.create!([
   {
     body: '1990', correct: 'f', question_id: Question.ids[0],
   },
@@ -71,14 +65,16 @@ end
   {
     body: 'Вася из Калиновки', correct: 't', question_id: Question.ids[1],
   },
-].each do |answers|
-  Answer.create!(answers)
-end
+])
 
-# Passing.create(user_id: 1, test_id: 1)
-# Passing.create(user_id: 1, test_id: 3)
-# Passing.create(user_id: 1, test_id: 4)
-# Passing.create(user_id: 2, test_id: 2)
-# Passing.create(user_id: 2, test_id: 5)
-# Passing.create(user_id: 2, test_id: 6)
-
+Passing.create!([
+  {
+    user_id: 1, test_id: 1, creator_test: 't',
+  },
+  {
+    user_id: 1, test_id: 1,
+  },
+  {
+    user_id: 2, test_id: 2, creator_test: 't',
+  },
+])
