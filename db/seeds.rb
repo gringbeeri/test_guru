@@ -8,13 +8,13 @@
 
 User.create!([
   {
-    name: 'Dima', surname: 'UA',
+    name: 'Dima', surname: 'UA', email: 'dmitro@gmail.com'
   },
   {
-    name: 'Vlad', surname: 'UA',
+    name: 'Vlad', surname: 'UA', email: 'vladislav@gmail.com',
   },
   {
-    name: 'Igor', surname: 'RU',
+    name: 'Igor', surname: 'RU', email: 'igor@gmail.com',
   },
 ])
 

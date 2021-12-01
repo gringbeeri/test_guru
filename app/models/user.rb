@@ -2,6 +2,8 @@ class User < ApplicationRecord
   has_many :passings
   has_many :tests, through: :passings
 
+  validates :email, presence: true
+
   def passing_tests(level)
     Test.find_by_sql("
       SELECT tests.*
