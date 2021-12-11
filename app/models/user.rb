@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :passings
-  has_many :author_tests, class_name: 'Test', foreign_key: 'author_id'
   has_many :tests, through: :passings
+  has_many :author_tests, class_name: 'Test', foreign_key: 'author_id'
 
   def passing_tests(level)
     Test.find_by_sql("

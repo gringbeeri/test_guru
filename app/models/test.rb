@@ -1,9 +1,9 @@
 class Test < ApplicationRecord
+  belongs_to :category
+  belongs_to :author, class_name: 'User', foreign_key: 'author_id'
   has_many :questions
   has_many :passings
   has_many :users, through: :passings
-  belongs_to :category
-  belongs_to :author, class_name: 'User', foreign_key: 'author_id'
 
   def self.tests_by_category(category)
     Test.find_by_sql("

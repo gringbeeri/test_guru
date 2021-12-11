@@ -54,7 +54,7 @@ Answer.create!([
     body: '1992', question: questions[0],
   },
   {
-    body: '1991', correct: 'true', question: questions[0],
+    body: '1991', correct: true, question: questions[0],
   },
   {
     body: 'Дима', question: questions[1],
@@ -63,7 +63,7 @@ Answer.create!([
     body: 'Влад', question: questions[1],
   },
   {
-    body: 'Вася из Калиновки', correct: 'true', question: questions[1],
+    body: 'Вася из Калиновки', correct: true, question: questions[1],
   },
 ])
 
