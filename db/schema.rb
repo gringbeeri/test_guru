@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 2021_11_30_200431) do
   create_table "passings", force: :cascade do |t|
     t.integer "user_id"
     t.integer "test_id"
-    t.string "creator_test", default: "f"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -47,6 +46,8 @@ ActiveRecord::Schema.define(version: 2021_11_30_200431) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "category_id"
+    t.integer "author_id"
+    t.index ["author_id"], name: "index_tests_on_author_id"
   end
 
   create_table "users", force: :cascade do |t|
