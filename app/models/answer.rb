@@ -10,8 +10,6 @@ class Answer < ApplicationRecord
   private
 
   def question_has_no_more_than_four_answers
-    Question.ids.each do |questions|
-      errors.add(:question_id, 'There are no more than 3 answers available') if Answer.where(:question_id => questions).count > 4
-    end
+    errors.add(:question_id, 'There are no more than 3 answers available') if question.answers.count > 3
   end
 end
