@@ -37,7 +37,7 @@
       }
     }
   ],
-  Fronted: [
+  Frontend: [
     { title: 'HTML',
       level: 0,
       name: 'Igor',

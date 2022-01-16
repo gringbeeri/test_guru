@@ -11,21 +11,9 @@ class Test < ApplicationRecord
   scope :easy, -> { where(level: 0..1) }
   scope :medium, -> { where(level: 2..4) }
   scope :difficult, -> { where(level: 5..ENDLESS) }
-  scope :category_tests, ->(category) {
-    Test
-      .select('tests.*')
-      .joins(:category)
-      .where('categories.title': "#{category}")
-      .order(id: :desc)
-  }
+  scope :category_tests, ->(category) { joins(:category).where('categories.title': "#{category}").order(id: :desc) }
 
   validates :title, presence: true, uniqueness: true
   validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validate :name_of_category
-
-  private
-
-  def name_of_category
-    errors.add(:category_id, 'This catgory does not start with "B"') if category.title.first == 'B'
-  end
 end

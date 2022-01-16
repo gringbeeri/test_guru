@@ -4,7 +4,6 @@ class Answer < ApplicationRecord
   scope :correct, -> { where(correct: true) }
 
   validates :body, presence: true
-  validates :question_id, presence: true
   validate :question_has_no_more_than_four_answers
 
   private
