@@ -6,75 +6,62 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-users = User.create!([
-  {
-    name: 'Dima', surname: 'UA',
-  },
-  {
-    name: 'Vlad', surname: 'UA',
-  },
-  {
-    name: 'Igor', surname: 'RU',
-  },
-])
-
-
-categories = Category.create!([
-  {
-    title: 'Backend',
-  },
-  {
-    title: 'Fronted',
-  },
-])
-
-tests = Test.create!([
-  {
-    title: 'Ruby', level: 2, category: categories[0], author: users[0],
-  },
-  {
-    title: 'HTML', category: categories[1], author: users[1],
-  },
-])
-
-questions = Question.create([
-  {
-    body: 'В каком году был разработан Ruby?', test: tests[0],
-  },
-  {
-    body: 'Кто создал HTML?', test: tests[1],
-  },
-])
-
-Answer.create!([
-  {
-    body: '1990', question: questions[0],
-  },
-  {
-    body: '1992', question: questions[0],
-  },
-  {
-    body: '1991', correct: true, question: questions[0],
-  },
-  {
-    body: 'Дима', question: questions[1],
-  },
-  {
-    body: 'Влад', question: questions[1],
-  },
-  {
-    body: 'Вася из Калиновки', correct: true, question: questions[1],
-  },
-])
-
-Passing.create!([
-  {
-    user: users[0], test: tests[0],
-  },
-  {
-    user: users[1], test: tests[0],
-  },
-  {
-    user: users[2], test: tests[1],
-  },
-])
+{
+  Backend: [
+    { title: 'Ruby',
+      level: 2,
+      name: 'Dima',
+      surname: 'UA',
+      email: 'dmitro@gmail.com',
+      questions: {
+        body: 'В каком году был разработан Ruby?',
+        answers: {
+          '1990' => false,
+          '1992' => false,
+          '1991' => true,
+        }
+      }
+    },
+    { title: 'C++',
+      level: 3,
+      name: 'Vlad',
+      surname: 'UA',
+      email: 'vladislav@gmail.com',
+      questions: {
+        body: 'Кто создал данный язык?',
+        answers: {
+          'Дима' => false,
+          'Влад' => false,
+          'Вася из Калиновки' => true
+        }
+      }
+    }
+  ],
+  Frontend: [
+    { title: 'HTML',
+      level: 0,
+      name: 'Igor',
+      surname: 'RU',
+      email: 'igor@gmail.com',
+      questions:{
+        body: 'Кто создатель языка?',
+        answers: {
+          'Дима' => false,
+          'Влад' => false,
+          'Петя из Джанкоя' => true
+        }
+      }
+    }
+  ]
+}.each do |categories, all_tests|
+  category = Category.create!(title: categories)
+  all_tests.each do |tests|
+    user = User.create!(name: tests[:name], surname: tests[:surname], email: tests[:email])
+    test = category.tests.create!(title: tests[:title], level: tests[:level], author: user)
+    passing = Passing.create!(user: user, test: test)
+    question = test.questions.create!(body: tests[:questions][:body])
+    tests[:questions][:answers].each do |answer, correct|
+      question.answers.create!(body: answer, correct: correct)
+    end
+  end
+end
