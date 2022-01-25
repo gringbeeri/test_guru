@@ -1,0 +1,8 @@
+<h1>THIS IS YOUR TEST!</h1>
+  <%= @tests = Test.where(id: params[:id]).inspect %>
+<h2>DO YOU WANT TO DELETE A TEST?</h2>
+<form accept-charset="UTF-8" action="/tests/3" method="post">
+  <input name="_method" type="hidden" value="delete" />
+  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
+  <input name="commit" type="submit" value="Delete" />
+</form>

@@ -6,6 +6,4 @@ Rails.application.routes.draw do
   end
 
   get '/test/:id/', to: 'questions#search'
-
-  # delete '/tests/:id', to: 'tests#delete'
 end
