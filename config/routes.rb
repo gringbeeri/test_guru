@@ -4,6 +4,4 @@ Rails.application.routes.draw do
   resources :tests do
     resources :questions
   end
-
-  get '/test/:id/', to: 'questions#search'
 end

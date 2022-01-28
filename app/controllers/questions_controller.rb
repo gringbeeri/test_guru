@@ -2,8 +2,6 @@ class QuestionsController < ApplicationController
 
   before_action :find_question, only: %i[show]
 
-  before_action :find_test, only: %i[search]
-
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
@@ -11,11 +9,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    # render inline: 'Вопрос: "<%= @question.body %>" принаджелит тесту - <%= @question.test_id %>!'
-  end
 
-  def search
-    render inline: '<%= @test.title %>'
   end
 
   def new
@@ -24,13 +18,11 @@ class QuestionsController < ApplicationController
 
   def create
     question = Question.create!(questions_params)
-
-    render plain: "Question IS CREATED! " "Вопрос: #{question.body} принадлежит тесту: #{question.test_id}!"
+    render plain: "Question IS CREATED! Вопрос: #{question.body} принадлежит тесту: #{question.test.title}!"
   end
 
   def destroy
     question = Question.find(params[:id], params[:test_id]).destroy
-
     render plain: "DELETE QUESTION"
   end
 
@@ -40,15 +32,11 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
   end
 
-  def find_test
-    @test = Test.find(params[:id])
-  end
-
   def questions_params
     params.require(:question).permit(:body, :test_id)
   end
 
   def rescue_with_question_not_found
-    render plain: 'Question or Test was not found'
+    render plain: 'Question was not found'
   end
 end

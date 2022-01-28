@@ -1,5 +1,5 @@
 <h1>THIS IS YOUR TEST!</h1>
-  <%= @tests = Test.where(id: params[:id]).inspect %>
+Тест: '<%= @test.title %>' принаджелит категории <%= @test.category.title %>!
 <h2>DO YOU WANT TO DELETE A TEST?</h2>
 <form accept-charset="UTF-8" action="/tests/3" method="post">
   <input name="_method" type="hidden" value="delete" />
