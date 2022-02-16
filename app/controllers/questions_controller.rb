@@ -1,11 +1,12 @@
 class QuestionsController < ApplicationController
 
+  before_action :find_test
   before_action :find_question, only: %i[show]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
-    render json: { questions: Question.where(test_id: params[:test_id]) }
+    @questions = @test.questions
   end
 
   def show
@@ -13,12 +14,17 @@ class QuestionsController < ApplicationController
   end
 
   def new
-
+    @question = @test.questions.build
   end
 
   def create
-    question = Question.create!(questions_params)
-    render plain: "Question IS CREATED! Вопрос: #{question.body} принадлежит тесту: #{question.test.title}!"
+    @question = Question.new(questions_params)
+
+    if @question.save
+      redirect_to @question
+    else
+      render :new
+    end
   end
 
   def destroy
@@ -28,8 +34,12 @@ class QuestionsController < ApplicationController
 
   private
 
+  def find_test
+    @test = Test.find(params[:test_id])
+  end
+
   def find_question
-    @question = Question.find(params[:id])
+    @question = @test.questions.find(params[:id])
   end
 
   def questions_params

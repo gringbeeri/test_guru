@@ -6,7 +6,7 @@ class TestsController < ApplicationController
 
 
   def index
-    render json: { tests: Test.all }
+    @tests = Test.all
   end
 
   def show
@@ -14,12 +14,21 @@ class TestsController < ApplicationController
   end
 
   def new
+    @test = Test.new
+  end
 
+  def edit
+    @test = Test.find(params[:id])
   end
 
   def create
-    test = Test.create!(test_params)
-    render plain: "Test IS CREATED! Тест: #{test.title} принадлежит категории: #{test.category.title}!"
+    @test = Test.new(test_params)
+
+    if @test.save
+      redirect_to @test
+    else
+      render :new
+    end
   end
 
   def destroy

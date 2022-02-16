@@ -1,8 +1,16 @@
-<h1>THIS IS YOUR QUESTION!</h1>
-Вопрос: '<%= @question.body %>' принаджелит тесту <%= @question.test.title %>!
-<h2>DO YOU WANT TO DELETE A QUESTION?</h2>
-<form accept-charset="UTF-8" action="/tests/1/questions/1" method="post">
-  <input name="_method" type="hidden" value="delete"/>
-  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-  <input name="commit" type="submit" value="Delete" />
-</form>
+<h3>YOUR QUESTION!</h3>
+
+<p>
+  <strong>Body:</strong>
+  <%= @question.body %>
+</p>
+
+<p>
+  <strong>Test_ID:</strong>
+  <%= @question.test.title%>
+</p>
+
+<p>
+<%= link_to '| BACK ALL QUESTIONS |', test_questions_path %>
+<%= link_to '| EDIT QUESTION |', edit_test_question_path(@question, @question.test) %>
+</p>

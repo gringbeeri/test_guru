@@ -1,24 +1,5 @@
-<p>Create New Test</p>
+<h2>CREATE NEW TEST</h2>
 
-<form action="/tests" method="post">
-  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+<%= render 'form' %>
 
-  <p>
-    <label for="test-title">Title:</label>
-    <input type="text" name="test[title]" id="test-title">
-  </p><br>
-
-  <p>
-    <label for="test-level">Level:</label>
-    <input type="text" name="test[level]" id="test-level">
-  </p><br>
-
-  <input name="test[category_id]" value="<%= params[:category_id] %>" id="test-category_id" type="hidden">
-
-  <p>
-    <label for="test-author_id">AuthorID:</label>
-    <input type="text" name="test[author_id]" id="test-author_id">
-  </p><br>
-
-  <input type="submit" value="Create">
-</form>
+<%= link_to '| BACK ALL TESTS |', tests_path %>
