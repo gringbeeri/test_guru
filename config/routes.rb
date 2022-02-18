@@ -4,8 +4,4 @@ Rails.application.routes.draw do
   resources :tests do
     resources :questions
   end
-
-  # resources :semesters do #-семестр один курсов много
-  #   resources :courses
-  # end
 end
