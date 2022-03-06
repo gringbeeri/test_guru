@@ -1,11 +1,11 @@
 class User < ApplicationRecord
-  has_many :passings
-  has_many :tests, through: :passings
+  has_many :test_passages
+  has_many :tests, through: :test_passages
   has_many :author_tests, class_name: 'Test', foreign_key: 'author_id'
 
   validates :email, presence: true
 
-  def passing_tests(level)
-    Test.joins(passings: :user).where('users.id' => id, 'tests.level' => level)
+  def test_passage(test)
+    test_passages.order(id: :desc).find_by(test_id: test.id)
   end
 end

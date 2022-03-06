@@ -58,7 +58,6 @@
   all_tests.each do |tests|
     user = User.create!(name: tests[:name], surname: tests[:surname], email: tests[:email])
     test = category.tests.create!(title: tests[:title], level: tests[:level], author: user)
-    passing = Passing.create!(user: user, test: test)
     question = test.questions.create!(body: tests[:questions][:body])
     tests[:questions][:answers].each do |answer, correct|
       question.answers.create!(body: answer, correct: correct)
