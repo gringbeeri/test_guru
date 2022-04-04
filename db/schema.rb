@@ -63,7 +63,6 @@ ActiveRecord::Schema.define(version: 2022_03_06_203038) do
     t.string "email"
   end
 
-  add_foreign_key "test_passages", "current_questions"
   add_foreign_key "test_passages", "tests"
   add_foreign_key "test_passages", "users"
 end

@@ -33,7 +33,7 @@ class TestsController < ApplicationController
   end
 
   def destroy
-    test = Test.find(params[:id]).destroy
+    @test.destroy
     render plain: 'TEST IS DELETE!'
   end
 

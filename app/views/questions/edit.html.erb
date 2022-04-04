@@ -1,1 +1,5 @@
-<%= question_header(@test) %>
+<%= question_header(@question.test) %>
+
+<%= render 'form' %>
+
+<%= link_to '| BACK TEST |', test_path(@question.test) %>
