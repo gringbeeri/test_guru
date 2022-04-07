@@ -17,7 +17,6 @@ module TestPassagesHelper
     "#{@result} - You didn't pass the test!"
   end
 
-
   def count_questions(test_passage)
     test_passage.test.questions.count
   end
