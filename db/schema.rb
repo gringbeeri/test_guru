@@ -26,13 +26,6 @@ ActiveRecord::Schema.define(version: 2021_12_05_194426) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "passings", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "test_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "questions", force: :cascade do |t|
     t.string "body", null: false
     t.datetime "created_at", precision: 6, null: false

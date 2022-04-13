@@ -4,6 +4,6 @@ module ApplicationHelper
   end
 
   def github_url(author, repository)
-    "Author Project:#{author}. #{repository}"
+    link_to('Link Github.', repository) + " Author Project: #{author}."
   end
 end
