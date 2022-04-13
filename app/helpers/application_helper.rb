@@ -1,10 +1,9 @@
 module ApplicationHelper
   def current_time
-    time = Time.new
-    time.year
+    Time.current.year
   end
 
   def github_url(author, repository)
-    render html: "Author Project:#{author}. <a href=#{repository}>Link Github.</a>".html_safe
+    link_to('Link Github.', repository) + " Author Project: #{author}."
   end
 end
