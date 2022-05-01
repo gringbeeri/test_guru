@@ -11,7 +11,6 @@
     { title: 'Ruby',
       level: 2,
       name: 'Dima',
-      surname: 'UA',
       email: 'dmitro@gmail.com',
       questions: {
         body: 'В каком году был разработан Ruby?',
@@ -25,7 +24,6 @@
     { title: 'C++',
       level: 3,
       name: 'Vlad',
-      surname: 'UA',
       email: 'vladislav@gmail.com',
       questions: {
         body: 'Кто создал данный язык?',
@@ -41,7 +39,6 @@
     { title: 'HTML',
       level: 0,
       name: 'Igor',
-      surname: 'RU',
       email: 'igor@gmail.com',
       questions:{
         body: 'Кто создатель языка?',
@@ -56,7 +53,7 @@
 }.each do |categories, all_tests|
   category = Category.create!(title: categories)
   all_tests.each do |tests|
-    user = User.create!(name: tests[:name], surname: tests[:surname], email: tests[:email])
+    user = User.create!(name: tests[:name], email: tests[:email])
     test = category.tests.create!(title: tests[:title], level: tests[:level], author: user)
     question = test.questions.create!(body: tests[:questions][:body])
     tests[:questions][:answers].each do |answer, correct|
