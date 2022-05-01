@@ -1,4 +1,15 @@
 <%= form_with model: @user, local: true do |form| %>
+  <% if @user.errors.present? %>
+    <div>
+      <h3>Errors detected:</h3>
+
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %>
+        <% end %>
+      </ul>
+    <div>
+  <% end %>
 
   <p>
     <%= form.label :name %><br>
