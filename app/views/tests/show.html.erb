@@ -1,8 +1,33 @@
-<h1>THIS IS YOUR TEST!</h1>
-Тест: '<%= @test.title %>' принаджелит категории <%= @test.category.title %>!
-<h2>DO YOU WANT TO DELETE A TEST?</h2>
-<form accept-charset="UTF-8" action="/tests/3" method="post">
-  <input name="_method" type="hidden" value="delete" />
-  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
-  <input name="commit" type="submit" value="Delete" />
-</form>
+<h3>/YOUR TEST/</h3>
+<p>
+  <strong>Title:</strong>
+  <%= @test.title %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @test.level %>
+</p>
+
+<p>
+  <%= form_with model: @test, method: :delete do |form| %>
+    <strong>DO YOU WANT TO DELETE A TEST?</strong>
+    <%= form.submit "DELETE", data: { confirm: "Are you sure?" } %>
+  <% end %>
+</p>
+
+<table>
+  <tr>
+    <th>Questions:</th>
+  </tr>
+  <% @test.questions.each do |question| %>
+    <tr>
+      <td><%= question.body %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p>
+<%= link_to '| BACK ALL TESTS |', tests_path %>
+<%= link_to '| EDIT TEST |', edit_test_path(@test) %>
+</p>
