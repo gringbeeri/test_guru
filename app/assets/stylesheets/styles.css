@@ -1,0 +1,18 @@
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: black;
+}
+
+/* result */
+
+.more {
+  background-color: green;
+}
+
+.less {
+  background-color: red;
+}

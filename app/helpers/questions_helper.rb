@@ -1,7 +1,7 @@
 module QuestionsHelper
 
   def question_header(test)
-    if request.original_fullpath == new_test_question_path
+    if action_name == 'new'
       "CREATE NEW #{test.title} QUESTION"
     else
       "EDIT #{test.title} QUESTION"
