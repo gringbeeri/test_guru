@@ -179,4 +179,3 @@ Answer.create!([
     body: 'Вася из Калиновки', correct: true, question: questions[5],
   },
 ])
-
