@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(version: 2022_03_06_203038) do
     t.index ["user_id"], name: "index_test_passages_on_user_id"
   end
 
-
   create_table "tests", force: :cascade do |t|
     t.string "title", null: false
     t.integer "level", default: 0
