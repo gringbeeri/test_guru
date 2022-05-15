@@ -1,7 +1,7 @@
 <h2>/All TESTS/</h2>
 
 <p>
-<%= link_to '| CREATE NEW TEST |', new_test_path %>
+<%= link_to '/ Create New Test / ', new_test_path %>
 </p>
 
 <table>
@@ -17,14 +17,14 @@
       <td><%= test.title %></td>
       <td><%= test.level %></td>
       <td><%= test.questions.count %></td>
-      <td><%= link_to '| CREATE USER |', signup_path %></td>
-      <td><%= link_to '| SHOW |', test_path(test) %></td>
-      <td><%= link_to '| EDIT |', edit_test_path(test) %></td>
-      <td><%= link_to '| DELETE |',
+      <td><%= link_to '/ Create User /', signup_path %></td>
+      <td><%= link_to '/ Show /', test_path(test) %></td>
+      <td><%= link_to '/ Edit /', edit_test_path(test) %></td>
+      <td><%= link_to '/ Delete /',
                         test_path(test),
                         method: :delete,
-                        data: { confirm: 'Are you sure?' } %></td>
-      <td><%= button_to '| START |', start_test_path(test) %></td>
+                        data: { confirm: 'Are You Sure?' } %></td>
+      <td><%= button_to ' Start Test -> ', start_test_path(test) %></td>
     </tr>
   <% end %>
 </table>

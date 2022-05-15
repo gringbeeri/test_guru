@@ -12,7 +12,8 @@
 
   <body>
     <% if logged_in? %>
-      <p class="nav user">Welcome, <b><%= current_user.email %></b> Guru</p>
+      <p class="nav user">Welcome! Email: '<b><%= current_user.email %></b>' Guru. <b>Home Page: <%= link_to 'Test Guru', tests_path%></b>!</p>
+      <h3 class="nav out">You will want to go out?<h3>
     <% end %>
 
     <%= yield %>

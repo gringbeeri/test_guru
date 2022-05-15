@@ -73,13 +73,13 @@
 
 users = User.create!([
   {
-    name: 'Dima', email: 'dima@.com', password: '333',
+    name: 'Dima', email: 'dima@com', password: '333',
   },
   {
-    name: 'Vlad', email: 'vlad@.com', password: '444',
+    name: 'Vlad', email: 'vlad@com', password: '444',
   },
   {
-    name: 'Igor', email: 'igor@.com', password: '555',
+    name: 'Igor', email: 'igor@com', password: '555',
   },
 ])
 

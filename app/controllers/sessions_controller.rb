@@ -14,4 +14,10 @@ class SessionsController < ApplicationController
       render :new
     end
   end
+
+  def destroy
+    if cookies[:_test_guru_session].destroy
+      redirect_to login_path
+    end
+  end
 end

@@ -16,7 +16,7 @@
 </p>
 
 <p>
-  <%= link_to '| EDIT ANSWER |', edit_answer_path(@answer) %>
-  <%= link_to '| BACK QUESTION |', question_path(@answer.question) %>
-  <%= link_to '| BACK TEST |', test_path(@answer.question.test) %>
+  <%= link_to '/ Edit Answer /', edit_answer_path(@answer) %>
+  <%= link_to '/ Back Question /', question_path(@answer.question) %>
+  <%= link_to '/ Back Test /', test_path(@answer.question.test) %>
 </p>
