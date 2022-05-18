@@ -31,7 +31,7 @@ class AnswersController < ApplicationController
 
   def destroy
     @answer.destroy
-    render plain: "DELETE ANSWER"
+    render :show
   end
 
   private

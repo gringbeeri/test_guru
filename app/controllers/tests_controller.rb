@@ -38,7 +38,7 @@ class TestsController < ApplicationController
 
   def destroy
     @test.destroy
-    render plain: 'TEST IS DELETE!'
+    redirect_to @test
   end
 
   def start
