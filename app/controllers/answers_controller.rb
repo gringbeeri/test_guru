@@ -2,19 +2,15 @@ class AnswersController < ApplicationController
 
   before_action :authenticate_user!
   before_action :find_question, only: %i[new create]
-  before_action :find_answer, only: %i[ show edit update destroy ]
+  before_action :find_answer, only: %i[show edit update destroy]
 
-  def show
-
-  end
+  def show; end
 
   def new
     @answer = @question.answers.new
   end
 
-  def edit
-
-  end
+  def edit; end
 
   def create
     @answer = @question.answers.new(answer_params)
@@ -27,7 +23,7 @@ class AnswersController < ApplicationController
   end
 
   def update
-    if @answer.update(answers_params)
+    if @answer.update(answer_params)
       render :show
     else
       render :edit
@@ -36,7 +32,7 @@ class AnswersController < ApplicationController
 
   def destroy
     @answer.destroy
-    render plain: "DELETE ANSWER"
+    render :show
   end
 
   private

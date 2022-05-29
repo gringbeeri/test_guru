@@ -11,16 +11,20 @@ class TestsController < ApplicationController
     @tests = Test.all
   end
 
-  def show
-
-  end
+  def show; end
 
   def new
     @test = Test.new
   end
 
-  def edit
+  def edit; end
 
+  def update
+    if @test.update(test_params)
+      render :show
+    else
+      render :edit
+    end
   end
 
   def create
@@ -35,7 +39,7 @@ class TestsController < ApplicationController
 
   def destroy
     @test.destroy
-    render plain: 'TEST IS DELETE!'
+    redirect_to @test
   end
 
   def start

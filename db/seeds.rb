@@ -80,7 +80,6 @@ users = User.create!([
   },
   {
     name: 'Igor', email: 'igor@com', password: '555',
-  },
 ])
 
 
@@ -179,4 +178,3 @@ Answer.create!([
     body: 'Вася из Калиновки', correct: true, question: questions[5],
   },
 ])
-
