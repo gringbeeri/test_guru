@@ -1,7 +1,6 @@
 class SessionsController < ApplicationController
 
-  def new
-  end
+  def new; end
 
   def create
     user = User.find_by(email: params[:email])
@@ -16,8 +15,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    if cookies[:_test_guru_session].destroy
-      redirect_to login_path
-    end
+    reset_session
+    redirect_to login_path
   end
 end
