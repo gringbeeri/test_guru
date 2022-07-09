@@ -1,10 +1,25 @@
+.basis {
+  margin-top: 100px;
+
+}
 /* footer */
+
+body{
+  background-color: rgb(164, 223, 223);
+}
 
 footer {
   margin-top: 45px;
-  padding-top: 5px;
-  border-top: 1px solid #eaeaea;
+  padding-top: 2,5px;
+  padding-bottom: 10px;
+  border-top: 3px solid rgb(6, 134, 70);
+  border-bottom: 3px solid rgb(6, 134, 70);
   color: black;
+  text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
 
 /* result */
@@ -15,4 +30,21 @@ footer {
 
 .less {
   background-color: red;
+}
+
+/* sessions */
+
+.login {
+  text-align: center;
+  padding: 25px;
+  border: 3px dotted rgb(6, 134, 70);
+  margin: 5px;
+}
+
+.welcome {
+  text-align: center;
+}
+
+.form-login{
+  font-size: 15px;
 }

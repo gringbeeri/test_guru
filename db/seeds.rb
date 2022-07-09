@@ -73,16 +73,15 @@
 
 users = User.create!([
   {
-    name: 'Dima', email: 'link@',
+    name: 'Dima', email: 'dima@com', password: '333',
   },
   {
-    name: 'Vlad', email: 'nolink@',
+    name: 'Vlad', email: 'vlad@com', password: '444',
   },
   {
-    name: 'Igor', email: 'yeslink@',
-  },
+    name: 'Igor', email: 'igor@com', password: '555',
+  }
 ])
-
 
 categories = Category.create!([
   {
