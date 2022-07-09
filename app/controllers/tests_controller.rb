@@ -1,12 +1,12 @@
-class TestsController < ApplicationController
+class TestsController < AuthenticationsController
 
-  before_action :authenticate_user!
   before_action :set_test, only: %i[show edit update destroy start delete]
   before_action :set_user, only: :start
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
   def index
+    "#{current_user}"
     @tests = Test.all
   end
 
@@ -53,7 +53,7 @@ class TestsController < ApplicationController
   end
 
   def set_user
-    @user = User.find_by(id: session[:user_id])
+    @user = current_user
   end
 
   def test_params
