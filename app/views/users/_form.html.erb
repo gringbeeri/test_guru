@@ -1,15 +1,5 @@
 <%= form_with model: @user, local: true do |form| %>
-  <% if @user.errors.present? %>
-    <div>
-      <h3>Errors detected:</h3>
-
-      <ul>
-        <% @user.errors.full_messages.each do |message| %>
-          <li><%= message %>
-        <% end %>
-      </ul>
-    <div>
-  <% end %>
+   <%= render 'shared/errors', resource: @user %>
 
   <p>
     <%= form.label :name %><br>
