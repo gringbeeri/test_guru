@@ -2,9 +2,9 @@ module AnswersHelper
 
   def answer_header(question)
     if action_name == 'new'
-      "CREATE NEW #{question.body} ANSWER"
+      "Create new #{question.body} answer"
     else
-      "EDIT #{question.body} ANSWER"
+      "Edit #{question.body} answer"
     end
   end
 end

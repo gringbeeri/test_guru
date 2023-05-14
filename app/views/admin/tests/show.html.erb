@@ -1,4 +1,4 @@
-<h3>/YOUR TEST/</h3>
+<h3>Your Test</h3>
 <p>
   <strong>Title:</strong>
   <%= @test.title %>
@@ -10,15 +10,18 @@
 </p>
 
 <p>
-  <%= link_to '/ Create New Question /', new_test_question_path(@test) %>
-  <%= link_to '/ Back All Tests /', tests_path %>
-  <%= link_to '/ Edit Test /', edit_test_path(@test) %>
+  <%= link_to 'Edit Test', edit_admin_test_path(@test) %>
+  <%= link_to 'Back All Tests', admin_tests_path %>
 </p>
 
 
 <p>-------------------------------------------------------------------------------------------</p>
 
-<h3>/All QUESTIONS/</h3>
+<h3>All Questions</h3>
+
+<p>
+  <%= link_to 'Create New Question', new_admin_test_question_path(@test) %>
+</p>
 
 <ol>
   <%= render @test.questions %>

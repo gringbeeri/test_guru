@@ -1,0 +1,22 @@
+<h3>Your Answer</h3>
+
+<p>
+  <strong>Question:</strong>
+  <%= @answer.question.body %>
+</p>
+
+<p>
+  <strong>Answer:</strong>
+  <%= @answer.body %>
+</p>
+
+<p>
+  <strong>Correct:</strong>
+  <%= @answer.correct %>
+</p>
+
+<p>
+  <%= link_to 'Edit Answer', edit_admin_answer_path(@answer) %>
+  <%= link_to 'Back Question', admin_question_path(@answer.question) %>
+  <%= link_to 'Back Test', admin_test_path(@answer.question.test) %>
+</p>

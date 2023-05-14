@@ -14,7 +14,7 @@
     <% if user_signed_in? %>
       <p class="nav user">
         Welcome! Email: '<b><%= current_user.email %></b>' Guru. <b>Home Page: <%= link_to 'Test Guru', tests_path%></b>!</p>
-        <h3 class="nav out">You will want to go out? <%= link_to '>Exit<', destroy_user_session_path, method: :delete %><h3>
+        <h3 class="nav out">You will want to go out? <%= link_to 'Exit', destroy_user_session_path, method: :delete %><h3>
       </p>
     <% end %>
 

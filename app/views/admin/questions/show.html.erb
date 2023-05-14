@@ -1,4 +1,4 @@
-<h3>/YOUR QUESTION/</h3>
+<h3>Your Question</h3>
 
 <p>
   <strong>Body:</strong>
@@ -11,17 +11,22 @@
 </p>
 
 <p>
-  <%= link_to '/ Create New Answer /', new_question_answer_path(@question) %>
-  <%= link_to '/ Back Test /', test_path(@question.test) %>
-  <%= link_to '/ Edit Question /', edit_question_path(@question) %>
+  <%= link_to 'Edit Question', edit_admin_question_path(@question) %>
+  <%= link_to 'Back Test', admin_test_path(@question.test) %>
 </p>
 
 <p>-------------------------------------------------------------------------------------------</p>
 
-<h3>/All ANSWERS/</h3>
+
+<h3>All Answers</h3>
+
+<p>
+  <%= link_to 'Create New Answer', new_admin_question_answer_path(@question) %>
+</p>
 
 <ol>
   <%= render @question.answers %>
 </ol>
+
 
 <p>-------------------------------------------------------------------------------------------</p>
