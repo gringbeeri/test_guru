@@ -2,8 +2,6 @@ class Admin::TestsController < Admin::BaseController
   
   before_action :set_test, only: %i[show edit update destroy]
 
-  skip_before_action :verify_authenticity_token, only: %i[destroy]
-
   def index
     @tests = Test.all
   end
@@ -40,7 +38,7 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def start
-    current_user.tests.push(@test)
+    current_user.tests << @test
     redirect_to current_user.test_passage(@test)
   end
 

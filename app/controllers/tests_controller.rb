@@ -1,9 +1,7 @@
-class TestsController < ApplicationController
+class TestsController < AuthenticatedController
 
   before_action :authenticate_user!
   before_action :set_test, only: %i[start]
-
-  # skip_before_action :verify_authenticity_token, only: %i[destroy]
 
   def index
     @tests = Test.all
